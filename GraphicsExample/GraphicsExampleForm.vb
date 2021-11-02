@@ -8,10 +8,10 @@ Public Class GraphicsExampleForm
 
         'Constructor for an instance of a pen object to use with the graphics object
         Dim pen As New Pen(Color.FromArgb(255, 0, 0, 0))
-        pen.Width() = 10
+        pen.Width() = 5
 
         'Draws a line with the defined pen. Starts at pixels (0,0) and ends at pixels (150,150)
-        g.DrawLine(pen, 20, 20, 150, 150)
+        g.DrawLine(pen, 0, 0, 150, 150)
 
         'Closes or disposes of the pen and graphics when they are no longer being used
         pen.Dispose()
@@ -21,13 +21,14 @@ Public Class GraphicsExampleForm
     Sub DrawCircle()
         Dim g As Graphics = PictureBox.CreateGraphics
         Dim pen As New Pen(Color.Green)
-        g.DrawEllipse(pen, 20, 20, 100, 100)
+        pen.Width() = 5
+        g.DrawEllipse(pen, 125, 150, 100, 100)
         pen.Dispose()
         g.Dispose()
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox.Click
-        'DrawLine()
+        DrawLine()
         DrawCircle()
     End Sub
 
